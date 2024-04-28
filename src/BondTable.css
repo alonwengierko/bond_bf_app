@@ -1,0 +1,24 @@
+.table-container {
+    margin-top: 20px;
+  }
+  
+  .key-cell {
+    text-align: left;
+    font-weight: bold;
+    width: 120px; /* Adjust the width as needed */
+  }
+
+  .value-cell {
+    text-align: left;
+    width: 120px; /* Adjust the width as needed */
+  }
+
+  .bond-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .bond-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
