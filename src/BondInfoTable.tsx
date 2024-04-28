@@ -17,7 +17,7 @@ function BondTable({isin}: Props) {
     const [ data, setData ] = useState<BondData | null>(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/v1/bond/characteristics?isin=${isin}`)
+        axios.get(`https://bond-api-bf.vercel.app/v1/bond/characteristics?isin=${isin}`)
             .then(response => setData(response.data))
             .catch(error => console.error('Error fetching data:', error))
     }, [isin]);

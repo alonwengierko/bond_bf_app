@@ -25,7 +25,7 @@ interface Props {
 
 async function generateCandlestickChart({isin}: Props) {
     // Candlestick chart
-    const response = await axios.get(`http://localhost:8000/v1/bond/historical?isin=${isin}&price_type=all`);
+    const response = await axios.get(`https://bond-api-bf.vercel.app/v1/bond/historical?isin=${isin}&price_type=all`);
     const responseData = response.data.result || [];
     const data = Array.isArray(responseData) ? responseData.reverse().map((item: any) => ({
         open: item.open,
