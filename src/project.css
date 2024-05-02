@@ -1,3 +1,4 @@
+/*
 html {
     box-sizing: border-box;
   }
@@ -104,8 +105,8 @@ html {
   
   #sidebar {
     width: 22rem;
-    /* background-color: #f7f7f7; */
-    /* border-right: solid 1px #e3e3e3; */
+    /* background-color: #f7f7f7; 
+    /* border-right: solid 1px #e3e3e3; 
     display: flex;
     flex-direction: column;
   }
@@ -225,7 +226,6 @@ html {
     gap: 1rem;
   }
   
-  /*Change sidebar nav color on hover*/
   #sidebar nav a:hover {
     background: #e3e3e3;
   }
@@ -381,3 +381,5 @@ html {
     justify-content: center;
     width: 100%;
   }
+
+  */
