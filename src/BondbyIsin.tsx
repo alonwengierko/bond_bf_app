@@ -6,7 +6,7 @@ import BondForm from './BondForm'
 import BondChart from './BondChart'
 
 
-function App() {
+function BondbyIsin() {
   const [isin, setIsin] = useState("")
 
   return (
@@ -26,4 +26,4 @@ function App() {
   )
 }
 
-export default App
+export default BondbyIsin

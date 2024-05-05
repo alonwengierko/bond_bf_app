@@ -10,7 +10,7 @@ import './index.css'
 import './project.css'
 import Root from './routes/root';
 import ErrorPage from './error-page';
-import App from './App';
+import BondbyIsin from './BondbyIsin';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/bonds/prices",
-    element: <App/>
+    element: <BondbyIsin/>
   }
 ])
 
