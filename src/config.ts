@@ -28,6 +28,13 @@ const environments: { [key: string]: Environment} = {
             bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
             bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
         }
+    },
+    production: {
+        baseUrl: 'https://bond-api-bf.vercel.app',
+        apiRoutes: {
+            bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
+            bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+        }
     }
 }
 
