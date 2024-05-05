@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from "axios";
+import config from './config';
+
 import './BondTable.css';
 
 interface BondData {
@@ -17,7 +19,12 @@ function BondTable({isin}: Props) {
     const [ data, setData ] = useState<BondData | null>(null);
 
     useEffect(() => {
-        axios.get(`https://bond-api-bf.vercel.app/v1/bond/characteristics?isin=${isin}`)
+        if (!isin) {
+            return;
+        }
+
+        const url = `${config.baseUrl}${config.apiRoutes.bondDetails(isin)}`
+        axios.get(url)
             .then(response => setData(response.data))
             .catch(error => console.error('Error fetching data:', error))
     }, [isin]);

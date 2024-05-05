@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
+import config from './config'
+
 import { createChart, IChartApi, Time } from 'lightweight-charts';
+
 
 // interface BondData {
 //     time: number;
@@ -25,7 +28,10 @@ interface Props {
 
 async function generateCandlestickChart({isin}: Props) {
     // Candlestick chart
-    const response = await axios.get(`https://bond-api-bf.vercel.app/v1/bond/historical?isin=${isin}&price_type=all`);
+    const url = `${config.baseUrl}${config.apiRoutes.bondPriceHistory(isin, 'all')}`
+    const response = await axios.get(url);
+    // const response = await axios.get(`http://localhost:8000/v1/bond/historical?isin=${isin}&price_type=all`);
+    
     const responseData = response.data.result || [];
     const data = Array.isArray(responseData) ? responseData.reverse().map((item: any) => ({
         open: item.open,
