@@ -13,6 +13,9 @@ const Root = () => {
                     <li>
                         <Link to="/bonds/prices">Bond Prices</Link>
                     </li>
+                    <li>
+                        <Link to="/bonds/issuers">Bond Issuers</Link>
+                    </li>
                 </ul>
                 {/* </div> */}
             </nav>

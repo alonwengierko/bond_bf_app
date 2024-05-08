@@ -8,6 +8,7 @@ interface Environment {
     apiRoutes: {
         bondDetails: (isin: string) => string;
         bondPriceHistory: (isin: string, priceType: string) => string;
+        bondIssuers: () => string;
     }
 }
 
@@ -20,20 +21,23 @@ const environments: { [key: string]: Environment} = {
         apiRoutes: {
             bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
             bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondIssuers: () => `/v1/bond/search_criteria_data`
         }
     },
     development: {
         baseUrl: 'https://bond-api-bf.vercel.app',
         apiRoutes: {
-            bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
-            bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondDetails: (isin: string) => `/v1/bond/characteristics?isin=${isin}`,
+            bondPriceHistory: (isin: string, priceType: string) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondIssuers: () => `/v1/bond/search_criteria_data`
         }
     },
     production: {
         baseUrl: 'https://bond-api-bf.vercel.app',
         apiRoutes: {
-            bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
-            bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondDetails: (isin: string) => `/v1/bond/characteristics?isin=${isin}`,
+            bondPriceHistory: (isin: string, priceType: string) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondIssuers: () => `/v1/bond/search_criteria_data`
         }
     }
 }
