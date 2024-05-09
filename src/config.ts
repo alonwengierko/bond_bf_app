@@ -32,7 +32,7 @@ const environments: { [key: string]: Environment} = {
             bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
             bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
             bondIssuers: () => `/v1/bond/search_criteria_data`,
-            bondSearch: () => 'v1/bond/search'
+            bondSearch: () => '/v1/bond/search'
         }
     },
     production: {
@@ -41,7 +41,7 @@ const environments: { [key: string]: Environment} = {
             bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
             bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
             bondIssuers: () => '/v1/bond/search_criteria_data',
-            bondSearch: () => 'v1/bond/search'
+            bondSearch: () => '/v1/bond/search'
         }
     }
 }
