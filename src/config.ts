@@ -9,6 +9,7 @@ interface Environment {
         bondDetails: (isin: string) => string;
         bondPriceHistory: (isin: string, priceType: string) => string;
         bondIssuers: () => string;
+        bondSearch: () => string;
     }
 }
 
@@ -21,23 +22,26 @@ const environments: { [key: string]: Environment} = {
         apiRoutes: {
             bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
             bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
-            bondIssuers: () => `/v1/bond/search_criteria_data`
+            bondIssuers: () => '/v1/bond/search_criteria_data',
+            bondSearch: () => '/v1/bond/search'
         }
     },
     development: {
         baseUrl: 'https://bond-api-bf.vercel.app',
         apiRoutes: {
-            bondDetails: (isin: string) => `/v1/bond/characteristics?isin=${isin}`,
-            bondPriceHistory: (isin: string, priceType: string) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
-            bondIssuers: () => `/v1/bond/search_criteria_data`
+            bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
+            bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondIssuers: () => `/v1/bond/search_criteria_data`,
+            bondSearch: () => 'v1/bond/search'
         }
     },
     production: {
         baseUrl: 'https://bond-api-bf.vercel.app',
         apiRoutes: {
-            bondDetails: (isin: string) => `/v1/bond/characteristics?isin=${isin}`,
-            bondPriceHistory: (isin: string, priceType: string) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
-            bondIssuers: () => `/v1/bond/search_criteria_data`
+            bondDetails: (isin) => `/v1/bond/characteristics?isin=${isin}`,
+            bondPriceHistory: (isin, priceType) => `/v1/bond/historical?isin=${isin}&price_type=${priceType}`,
+            bondIssuers: () => '/v1/bond/search_criteria_data',
+            bondSearch: () => 'v1/bond/search'
         }
     }
 }
