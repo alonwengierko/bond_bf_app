@@ -28,10 +28,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage/>
     
   },
-  // {
-  //   path: "/bonds/prices",
-  //   element: <BondbyIsin/>
-  // },
+  {
+    path: "/bonds/prices",
+    element: <BondbyIsin/>
+  },
   {
     path: "/bonds/prices/:isin",
     element: <BondbyIsin/>
