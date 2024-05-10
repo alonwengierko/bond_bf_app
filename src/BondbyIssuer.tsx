@@ -3,6 +3,7 @@ import './App.css'
 import { Autocomplete, Button, Table } from '@mantine/core';
 import config from './config';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function BondbyIssuer() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -89,9 +90,12 @@ interface BondSearch {
 
 const BondIssuerTable: React.FC<{ selectedOption: string }>= ({selectedOption}) => {
   const [results, setResults] = useState<Bond[]>([]);
+  const [loading, setLoading] = useState(false);
   
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+      setResults([]);
       try {
         const url = `${config.baseUrl}${config.apiRoutes.bondSearch()}`
         const response = await axios.post<BondSearch[]>(url, { issuers: [selectedOption] });
@@ -104,7 +108,9 @@ const BondIssuerTable: React.FC<{ selectedOption: string }>= ({selectedOption}) 
         setResults(formattedData)
       } catch(error) {
         console.error('Error fetching data:', error);
-      }};
+      }
+      setLoading(false);
+      };
       fetchData();
     },[selectedOption])
   // const elements = [
@@ -114,9 +120,13 @@ const BondIssuerTable: React.FC<{ selectedOption: string }>= ({selectedOption}) 
   //   { position: 4, name: 'Beryllium', symbol: 'Be', mass: 9.0122 },
   //   { position: 5, name: 'Boron', symbol: 'B', mass: 10.811 },
   // ];
+
+  if (loading) return <div>Loading...</div>;
+  if (!results.length) return <></>;
+  
   const rows = results.map((element) => (
     <Table.Tr key={element.name}>
-      <Table.Td>{element.isin}</Table.Td>
+      <Table.Td><Link to={`/bonds/prices/${element.isin}`}>{element.isin}</Link></Table.Td>
       <Table.Td>{element.name}</Table.Td>
       <Table.Td>{element.price}</Table.Td>
       <Table.Td>{element.dateTime}</Table.Td>

@@ -19,6 +19,8 @@ import BondbyIsin from './BondbyIsin';
 import BondbyIssuer from './BondbyIssuer';
 
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,8 +28,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage/>
     
   },
+  // {
+  //   path: "/bonds/prices",
+  //   element: <BondbyIsin/>
+  // },
   {
-    path: "/bonds/prices",
+    path: "/bonds/prices/:isin",
     element: <BondbyIsin/>
   },
   {
